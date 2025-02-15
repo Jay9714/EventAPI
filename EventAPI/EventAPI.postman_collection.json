@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "24de2a52-252a-41a5-80de-9f8b6fd02d45",
+		"name": "EventAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "39797813"
+	},
+	"item": [
+		{
+			"name": "get_JWT_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin@gmail.com\",\r\n    \"password\": \"Admin@9714\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/token/"
+			},
+			"response": []
+		},
+		{
+			"name": "refresh_JWT_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczOTA5ODYwMywiaWF0IjoxNzM5MDEyMjAzLCJqdGkiOiI4ZDUyZTU5Njk0NGM0NDJhOWQ1ZmZiZTI3YjZjNjk3NyIsInVzZXJfaWQiOjF9.E2sk4vZzOUVxuoQyDj-RZtCF7osOfJfcgLv-Bjb5KvA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/token/refresh/"
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user@gmail.com\",\r\n    \"password\": \"User@9714\",\r\n    \"user_role\": \"User\"\r\n}"
+				},
+				"url": "http://127.0.0.1:8000/api/register/"
+			},
+			"response": []
+		},
+		{
+			"name": "get ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjUzNjMzLCJpYXQiOjE3Mzk2MTc2MzMsImp0aSI6ImE5MDgzZjI1NGVlOTQzYzlhOTZkNTdjODBlMDQyYjJjIiwidXNlcl9pZCI6M30.5WxAqADAa0LlaL5seWP8umqm8h06oz0uAwxgg2QcW-E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": 1\r\n}"
+				},
+				"url": "http://127.0.0.1:8000/api/events/6/purchase/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get events",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjE5NDc2LCJpYXQiOjE3Mzk2MTU4NzYsImp0aSI6ImMyODQyODQxM2M3OTQ5N2VhM2IxMjBkMDY0ZTNiZGViIiwidXNlcl9pZCI6Mn0.yz-EfQ8_YKSmDmLNm5Q_HE4Viu-2cKNkkk6s2-CanQw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://127.0.0.1:8000/api/events/"
+			},
+			"response": []
+		},
+		{
+			"name": "Create event",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjE5NDc2LCJpYXQiOjE3Mzk2MTU4NzYsImp0aSI6ImMyODQyODQxM2M3OTQ5N2VhM2IxMjBkMDY0ZTNiZGViIiwidXNlcl9pZCI6Mn0.yz-EfQ8_YKSmDmLNm5Q_HE4Viu-2cKNkkk6s2-CanQw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Automation Expo\",\r\n    \"date\": \"11-08-2025\",\r\n    \"total_tickets\": 10   \r\n}"
+				},
+				"url": "http://127.0.0.1:8000/api/events/"
+			},
+			"response": []
+		}
+	]
+}
